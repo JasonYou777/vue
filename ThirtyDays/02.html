@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Day02</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        {{ message }}
+        <menu-section></menu-section>
+        <description-section></description-section>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!'
+            },
+            components: {
+                'menu-section': {
+                    template: '<ul><li v-for="item in menuItems">{{ item.text }}</li></ul>',
+                    data: function () {
+                        return {
+                            menuItems: [{
+                                text: 'About me'
+                            }, {
+                                text: 'Articles'
+                            }, {
+                                text: 'contact'
+                            }]
+                        }
+                    }
+                },
+                'description-section': {
+                    template: '<p>{{ text }}</p>',
+                    data: function () {
+                        return {
+                            text: 'Hello, I am Ralph.'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+
+
+</body>
+
+</html>

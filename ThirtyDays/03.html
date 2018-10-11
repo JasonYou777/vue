@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Day02</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        {{ message }}
+        <menu-section></menu-section>
+    </div>
+
+    <template id="menuTemplate">
+        <ul>
+            <li v-for="item in menuItems">{{ item.text }}</li>
+        </ul>
+    </template>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'vue rock!'
+            },
+            /* 局部註冊 (Local Registration) */
+            components: {
+                'menu-section': {
+                    template: '#menuTemplate', /* 樣板選取器 */
+                    data: function () {
+                        return {
+                            menuItems: [{
+                                text: 'About me'
+                            }, {
+                                text: 'Articles'
+                            }, {
+                                text: 'contact'
+                            }]
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>
